@@ -1,3 +1,17 @@
+<?php
+
+session_start(); 
+
+if(isset($_SESSION['login']) == FALSE){
+
+  echo "<p>ログインされていません</p>";
+  echo '<p><a href="./../">ログイン画面へ</a></p>';
+  exit();
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -6,6 +20,7 @@
 </head>
 <body>
   
+  <p><?php echo $_SESSION['staff_name']; ?>さんログイン中</p>
   <p>スタッフ追加</p>
 
   <form method="post" action="staff_add_check.php" enctype="multipart/form-data">

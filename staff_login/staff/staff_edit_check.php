@@ -1,5 +1,15 @@
 <?php
 
+session_start(); 
+
+if(isset($_SESSION['login']) == FALSE){
+
+  echo "<p>ログインされていません</p>";
+  echo '<p><a href="./../">ログイン画面へ</a></p>';
+  exit();
+
+}
+
 require_once('../../common/common.php');
 
 $post = sanitize($_POST);
@@ -77,6 +87,7 @@ if(count($error) === 0){
 </head>
 <body>
 
+  <p><?php echo $_SESSION['staff_name']; ?>さんログイン中</p>
   <!--エラー文章-->
 
   <ul>

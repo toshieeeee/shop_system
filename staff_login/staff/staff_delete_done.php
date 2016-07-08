@@ -1,5 +1,15 @@
 <?php
 
+session_start(); 
+
+if(isset($_SESSION['login']) == FALSE){
+
+  echo "<p>ログインされていません</p>";
+  echo '<p><a href="./../">ログイン画面へ</a></p>';
+  exit();
+
+}
+
 try{
 
 require_once('../../common/common.php');
@@ -37,6 +47,8 @@ $dbh = null;
   <title>Document</title>
 </head>
 <body>
+
+  <p><?php echo $_SESSION['staff_name']; ?>さんログイン中</p>
   <p>削除しました</p>
   <a href ="./">戻る</a>
 

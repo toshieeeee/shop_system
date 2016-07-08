@@ -1,5 +1,15 @@
 <?php
 
+session_start(); 
+
+if(isset($_SESSION['login']) == FALSE){
+
+  echo "<p>ログインされていません</p>";
+  echo '<p><a href="./../">ログイン画面へ</a></p>';
+  exit();
+
+}
+
 require_once('../../common/common.php');
 
 $post = sanitize($_POST); // POSTで受け取ったデータを一括でサニタイズ
@@ -95,6 +105,7 @@ if($staff_name == '' || $staff_pass == '' || $staff_pass != $staff_pass2){
 </head>
 <body>
 
+  <p><?php echo $_SESSION['staff_name']; ?>さんログイン中</p>
   <div class="validate">
 
     <?php echo $validate_staff_name ?>

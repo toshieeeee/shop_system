@@ -1,5 +1,15 @@
 <?php
 
+session_start(); 
+
+if(isset($_SESSION['login']) == FALSE){
+
+  echo "<p>ログインされていません</p>";
+  echo '<p><a href="./../">ログイン画面へ</a></p>';
+  exit();
+
+}
+
 try{
 
 //DBに接続
@@ -59,10 +69,13 @@ $list .= '</form>';
   <title>Document</title>
 </head>
 <body>
-  
+
+  <p><?php echo $_SESSION['staff_name']; ?>さんログイン中</p>
   <p>スタッフ一覧</p>
 
   <?php echo $list ?>
+
+  <p><a href="./../staff_top.php">TOPメニューへ</a></p>
 
 </body>
 </html>
