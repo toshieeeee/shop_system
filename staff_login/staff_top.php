@@ -29,6 +29,7 @@ if(isset($_SESSION['login']) == FALSE){
 
     <p><a href="./staff/">スタッフ管理</a></p>
     <p><a href="./product/">商品管理</a></p>
+    <p><a href="./staff_logout.php">ログアウト</a></p>
 
 </body>
 </html>
